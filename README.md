@@ -48,7 +48,31 @@ $ anvil
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ forge script script/Deploy.s.sol --rpc-url <your_rpc_url> --broadcast
+```
+
+With verification:
+
+```shell
+$ forge script script/Deploy.s.sol --rpc-url <your_rpc_url> --broadcast --verify
+```
+
+Environment variables:
+
+```shell
+PRIVATE_KEY=...                 # deployer key
+OWNER_ADDRESS=0x...             # optional override owner
+TOKEN_ADDRESS=0x...             # optional override token
+CELO_MULTISIG=0x...             # mainnet owner
+BASE_MULTISIG=0x...             # mainnet owner
+CELOSCAN_KEY=...                # Celo explorer API key
+BASESCAN_KEY=...                # Base explorer API key
+```
+
+Deployment outputs:
+
+```text
+deployments/<chainId>.json
 ```
 
 ### Cast
